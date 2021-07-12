@@ -1,0 +1,146 @@
+---
+title: "EJERCICIOS PRIMERA PARTE"
+author: "COBA BAUTISTA KEVIN DANY"
+code: 17160042
+output: html_document
+---
+
+
+# PRIMERA PARTE
+
+CALCULA LOS VALORES NUMERCIOS APROXIMADOS
+
+1.a
+```{r}
+(0.3*0.15)/(0.3*0.15+0.2*0.8+0.5*0.12)
+```
+1.b
+```{r}
+((5^6)/factorial(6))*exp(-5)
+```
+1.C
+```{r}
+choose(20,7)*(0.4^7)*(0.6^13)
+```
+Realizar la siguiente suma
+
+2.a
+```{r}
+sum(1:1000)
+```
+2.b
+```{r}
+sum(2^(0:10))
+```
+3. El vector grupo representa al grupo al que pertenece una serie de alumnos piden
+
+```{r}
+load("ei1012-1516-la-s1-datos.RData")
+```
+3.a
+```{r}
+length(grupo)
+```
+3.b
+```{r}
+which(grupo == "A")
+```
+4.El vector nota representa la nota de un examen de los alumnos que están en los grupos del vector grupo.
+
+4.a
+```{r}
+sum(nota)
+```
+4.b
+```{r}
+mean(nota)
+```
+4.c
+```{r}
+which(nota>7.0)
+```
+4.d
+```{r}
+sort(nota,decreasing = T)
+```
+4.e
+```{r}
+which.max(nota)
+```
+5. A partir de los vectores grupo y nota definidos.
+
+5.a
+```{r}
+sum(nota[1:10])
+```
+5.b
+```{r}
+length(grupo[grupo=="C"])
+```
+5.c
+```{r}
+length(nota[nota>=5.0])
+```
+5.d
+```{r}
+length(nota [grupo =="B" & nota>=5.0])
+```
+5.e
+```{r}
+(length(nota[grupo == "C" & nota >= 5])/length(nota[grupo == "C"]))*100
+```
+5.f maxima nota
+```{r}
+grupo[nota == max(nota)]
+```
+5.f minima nota
+```{r}
+grupo[nota == min(nota)]
+```
+6. Calcula el percentil 66 de las notas de todos los alumnos, y también de los alumnos del grupo C.
+
+6.a
+```{r}
+quantile(nota, probs = 0.66)
+```
+6.b
+```{r}
+quantile(nota[grupo =="C"], probs = 0.66)
+```
+7. Un alumno tiene una nota de 4.9. ¿Qué porcentaje, del total de alumnos, tiene una nota menor o igual que la suya? ¿Y qué porcentaje tiene una nota mayor o igual que la suya?
+
+7.a
+```{r}
+(length(nota[nota<=4.9])/length(nota))*100
+```
+7.b
+```{r}
+(length(nota[nota>=4.9])/length(nota))*100
+```
+9. Si la variable conc recoge la concentración de plomo (en ppm) en el aire de cierta zona durante un día completo
+
+```{r}
+conc
+```
+9.a
+```{r}
+max(conc)
+```
+9.b
+```{r}
+length(conc[conc>40])
+
+```
+9.c
+```{r}
+mean(conc)
+```
+9.d
+```{r}
+sort(conc)[1:10]
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+

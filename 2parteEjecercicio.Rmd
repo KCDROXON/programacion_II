@@ -1,0 +1,112 @@
+---
+title: "EJERCICIOS SEGUNDA PARTE"
+author: "COBA BAUTISTA KEVIN DANY"
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# SEGUNA PARTE
+# PRIMERA PARTE
+
+1.Graficar los puntos  
+
+```{r}
+D <- matrix(c((1:10),(1:10)^2), nrow = 10)
+plot(D,xlab = "x", ylab = "x^2")
+```
+2. Ingresar la matriz A en RStudio  
+ 
+
+```{r}
+matrix(c(1,2,3,2,4,6,3,6,9,4,8,12), nrow = 4, byrow = "T")
+A <- matrix(c(1,2,3,2,4,6,3,6,9,4,8,12), nrow = 4, byrow = "T")
+A
+```
+3. Ingresar la matriz identidad de tamaño 3
+ 
+
+```{r}
+diag(x =1,nrow = 3)
+```
+4.Crea una función que cree una matriz nula ingresando las dimensiones  
+ 
+
+```{r}
+matrix_null <- function(a,b){
+  return(diag(0,a,b));
+}
+matrix_null(4,4)
+```
+5.Modificar la matriz diag(4), para que se parezca a la matriz B 
+ 
+
+```{r}
+diag(x = c(0,2,3,4), nrow = 4)
+B <- diag(x = c(0,2,3,4), nrow = 4)
+```
+
+6. Obtener la matriz transpuesta de A (ejercicio 2)
+ 
+
+```{r}
+A0 <- matrix(c(1,2,3,2,4,6,3,6,9,4,8,12), nrow = 4, byrow = T)
+t(A0)
+```
+7.Realizar las siguientes operaciones
+ 
+dimensiones diferentes no se podre realizar la parte 7a y 7b
+
+7c
+```{r}
+3*B
+```
+9.Resolver el sistema de ecuaciones
+ 
+
+```{r}
+matrix_sist <- matrix(c(3,-1,1,9,-2,1,3,1,-2), nrow = 3, byrow= T)
+matrix_sol <- c(-1, -9, -9)
+solve(matrix_sist, matrix_sol)
+```
+10. Utilizando la ayuda de R, investigue para qué sirven las funciones eigen() y det()
+
+11.Resolver
+ 
+
+```{r}
+MB <- c(1:10, 2*(1:10), 3*(1:10), 4*(1:10), 5*(1:10))
+ma_B <- matrix(MB, nrow = 10)
+ma_B
+MA <- c(0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0)
+ma_A <- matrix(MA, nrow = 5)
+ma_A
+t(ma_B)
+ma_A%*%t(ma_B)
+```
+12.Resolver e
+ 
+
+```{r}
+x2 <- matrix(c(rep(1,5), 1, -1, 0:2), nrow = 5, byrow = F)
+y2 <- matrix(c(0,0,1,1,3), nrow = 5, byrow = F)
+
+solve(t(x2)%*%x2)%*%t(x2)%*%y2
+```
+
+14. Lee el archivo rainfall.csv como un data.frame
+Calcula e imprime un vector con los nombres de las estaciones donde al menos uno de los meses tiene una precipitación superior a 180mm.
+```{r}
+library(dplyr)
+df <- read.csv("K:/UNMSM/CICLO_IX/PROGRAMACION/ProgramacionR-master/data/rainfall.csv")
+names_est <- dplyr::select(df, sep:apr, name) %>% 
+  dplyr::filter(sep > 180 | oct > 180 | nov > 180 | dec > 180 |
+                  jan > 180 | feb > 180 |mar >180) %>%
+  dplyr::select(name)
+names_est <- as.vector(names_est$name)
+names_est
+``` 
+
